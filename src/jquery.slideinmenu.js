@@ -13,6 +13,8 @@ Module = function (element, options) {
 	this.el = element;
 	this.$el = $(element);
 	this.options = $.extend({
+		easing: 'swing',
+		duration: 300
 	}, options);
 };
 
@@ -102,13 +104,22 @@ Module = function (element, options) {
 	 * _animateForward
 	 */
 	fn._animateForward = function (target_page_index) {
+		var easing = this.options.easing;
+		var duration = this.options.duration;
 		var $target = this.$page.filter('[data-slideinmenu-page="' + target_page_index + '"]');
 
-		this.$el.height($target.innerHeight());
+		this.$el.animate({
+			height: $target.innerHeight()
+		}, {
+			duration: duration,
+			easing: easing
+		});
 
 		$target.animate({
 			left: 0
 		}, {
+			duration: duration,
+			easing: easing
 		});
 	};
 
@@ -116,6 +127,8 @@ Module = function (element, options) {
 	 * _animateBack
 	 */
 	fn._animateBack = function (target_page_index) {
+		var easing = this.options.easing;
+		var duration = this.options.duration;
 		var current_page = this.$el.attr('data-slideinmenu-currentpage');
 		var $current = this.$page.filter('[data-slideinmenu-page="' + current_page + '"]');
 		var $target = this.$page.filter('[data-slideinmenu-page="' + target_page_index + '"]');
@@ -123,11 +136,15 @@ Module = function (element, options) {
 		this.$el.animate({
 			height: $target.innerHeight()
 		}, {
+			duration: duration,
+			easing: easing
 		});
 
 		$current.animate({
 			left: '100%'
 		}, {
+			duration: duration,
+			easing: easing
 		});
 	};
 
