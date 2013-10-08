@@ -74,9 +74,12 @@ Module = function (element, options) {
 	fn.movePageTo = function (target_page_index) {
 		var current_page = this.$el.attr('data-slideinmenu-currentpage') || 0;
 		var context = (current_page < target_page_index) ? 'forward' : 'back';
+		var $target = this.$page.filter('[data-slideinmenu-page="' + target_page_index + '"]');
 
 		this._animate(context, target_page_index);
 
+		this.$page.removeClass('current');
+		$target.addClass('current');
 		this.$el.attr('data-slideinmenu-currentpage', target_page_index);
 	};
 
