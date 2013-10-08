@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>jquery.slideinmenu.js Sample</title>
+<script src="../lib/jquery.js"></script>
+<script src="../dest/jquery.slideinmenu.js"></script>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+[data-slideinmenu] {
+	position: relative;
+	background: #FFC;
+}
+[data-slideinmenu-page="0"] {
+	background: #FCC;
+	padding: 10px;
+}
+[data-slideinmenu-page="1"] {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #CFC;
+	padding: 10px;
+}
+[data-slideinmenu-content] {
+	background: #CFF;
+	padding: 10px;
+}
+</style>
+<script>
+$(function () {
+	$('[data-slideinmenu]').slideinmenu();
+});
+</script>
+</head>
+
+<body>
+
+
+<div data-slideinmenu>
+
+<div data-slideinmenu-page="0">
+<ul>
+<li><a href="#" data-slideinmenu-nav="sample1">sample1</a></li>
+<li><a href="#" data-slideinmenu-nav="sample2">sample2</a></li>
+<li><a href="#" data-slideinmenu-nav="sample3">sample3</a></li>
+</ul>
+</div>
+
+
+<div data-slideinmenu-page="1">
+
+<div data-slideinmenu-content="sample1">
+<pre>
+sample1 content
+sample1 content
+sample1 content
+sample1 content
+sample1 content
+sample1 content
+sample1 content
+</pre>
+</div>
+
+<div data-slideinmenu-content="sample2">
+sample2
+</div>
+
+<div data-slideinmenu-content="sample3">
+sample3
+</div>
+
+<p><a href="#" data-slideinmenu-back>Back</a></p>
+
+</div>
+
+</div>
+
+<pre style="background:#CCF">
+1. brother element
+2. brother element
+3. brother element
+4. brother element
+5. brother element
+6. brother element
+7 .brother element
+</pre>
+
+
+</body>
+</html>
